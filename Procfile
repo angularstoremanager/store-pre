@@ -1,1 +1,1 @@
-web: npm load
+web: npm run load
