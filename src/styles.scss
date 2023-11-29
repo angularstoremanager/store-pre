@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+
+.container-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.full-screen {
+  height: 100vh;
+  width: 100vw;
+}
