@@ -11,16 +11,16 @@ import { ButtonModule } from 'primeng/button';
   standalone: true,
   imports: [CommonModule, InputTextModule, CarouselModule, TagModule, ButtonModule],
   providers: [ProductService],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  templateUrl: './home.component.html'
 })
 export class HomeComponent {
-  value: Event | undefined;
+  value: string | undefined;
   products: Product[];
 
   responsiveOptions: any[] | undefined;
 
   constructor(private productService: ProductService) {
+    this.value = '';
     this.products = []
   }
 
