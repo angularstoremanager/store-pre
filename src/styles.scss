@@ -38,7 +38,10 @@
   align-items: center;
   gap: 10px;
 }
-
+img{
+  max-height:100%;
+    max-width:100%;
+}
 /* Responsive layout - makes the menu and the grid items stack on top of each other */
 @media (max-width: 600px) {
   .grid-container {

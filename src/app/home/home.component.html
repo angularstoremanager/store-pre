@@ -36,7 +36,7 @@
     @for (product of products; track product.id) {
     <div class="grid-item">
       <div class="card-wrapper mb-3">
-        <img [src]="product?.images?.large" [alt]="product?.name" class="w-6 shadow-2" />
+        <img [src]="product?.images?.large" [alt]="product?.name" />
         <div class="info">
           <label for="productName">Name:</label>
           <div id="productName">{{ product.name }}</div>
