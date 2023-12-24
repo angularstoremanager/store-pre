@@ -37,10 +37,14 @@
     <div class="grid-item">
       <div class="card-wrapper mb-3">
         <img [src]="product?.images?.large" [alt]="product?.name" class="w-6 shadow-2" />
-        <label for="productName">Name:</label>
-        <div id="productName">{{ product.name }}</div>
-        <label for="productPrice">Price:</label>
-        <div id="productPrice">{{ product?.cardmarket?.prices?.lowPrice + '$' }}</div>
+        <div class="info">
+          <label for="productName">Name:</label>
+          <div id="productName">{{ product.name }}</div>
+        </div>
+        <div class="info">
+          <label for="productPrice">Price:</label>
+          <div id="productPrice">{{ product?.cardmarket?.prices?.lowPrice + '$' }}</div>
+        </div>
       </div>
 
     </div>
