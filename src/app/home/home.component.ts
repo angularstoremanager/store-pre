@@ -3,35 +3,36 @@ import { CommonModule } from '@angular/common';
 import { InputTextModule } from 'primeng/inputtext';
 import { CarouselModule } from 'primeng/carousel';
 import { MenubarModule } from 'primeng/menubar';
-import { ProductService } from './services/product.service';
-import { Product } from './models/products.interface';
 import { TagModule } from 'primeng/tag';
 import { ButtonModule } from 'primeng/button';
 import { MenuItem } from 'primeng/api';
+import { PokemonService } from './services/pokemon.service';
+import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, InputTextModule, CarouselModule, TagModule, ButtonModule, MenubarModule],
-  providers: [ProductService],
+  imports: [CommonModule, InputTextModule, CarouselModule, TagModule, ButtonModule, MenubarModule, HttpClientModule],
+  providers: [PokemonService],
   templateUrl: './home.component.html'
 })
 export class HomeComponent {
   items: MenuItem[] | undefined;
-  products: Product[];
+  products: any;
   responsiveOptions: any[] | undefined;
   value: string | undefined;
 
 
 
-  constructor(private productService: ProductService) {
+  constructor(private pokemonService: PokemonService) {
     this.value = '';
     this.products = []
   }
 
   ngOnInit() {
-      this.productService.getProductsSmall().then((products) => {
-          this.products = products;
-      });
+    this.pokemonService.getProductsData().subscribe(data => {
+      console.log(data.data)
+      this.products = data.data
+    });
 
       this.responsiveOptions = [
           {
@@ -186,5 +187,9 @@ export class HomeComponent {
           default:
             return '';
       }
+  }
+
+  trackProductId(index: number, product: any): string {
+    return product.id;
   }
 }

@@ -11,16 +11,17 @@
     <i class="pi pi-search"></i>
     <input type="text" pInputText [value]="value" />
   </div> -->
-  <p-carousel [value]="products" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions">
+  <!-- <p-carousel [value]="products" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions">
     <ng-template let-product pTemplate="item">
       <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
-        <div class="mb-3">
-          <img src="https://primefaces.org/cdn/primeng/images/demo/product/{{ product.image }}" [alt]="product.name"
+        <div class="image-wrapper mb-3">
+           <img src="https://primefaces.org/cdn/primeng/images/demo/product/{{ product.image }}" [alt]="product.name"
             class="w-6 shadow-2" />
+          <img [src]="product?.images?.large" [alt]="product?.name" class="w-6shadow-2" />
         </div>
         <div>
-          <h4 class="mb-1">{{ product.name }}</h4>
-          <h6 class="mt-0 mb-3">{{ '$' + product.price }}</h6>
+          <h4 class="mb-1">{{ product?.name }}</h4>
+          <h6 class="mt-0 mb-3">{{ '$' + product?.cardmarket?.prices?.lowPrice }}</h6>
           <p-tag [value]="product.inventoryStatus" [severity]="getSeverity(product.inventoryStatus)"></p-tag>
           <div class="car-buttons mt-5">
             <p-button type="button" styleClass="p-button p-button-rounded mr-2" icon="pi pi-search">Pujar</p-button>
@@ -30,5 +31,22 @@
         </div>
       </div>
     </ng-template>
-  </p-carousel>
+  </p-carousel> -->
+  <div class="grid-container">
+    @for (product of products; track product.id) {
+    <div class="grid-item">
+      <div class="card-wrapper mb-3">
+        <img [src]="product?.images?.large" [alt]="product?.name" class="w-6 shadow-2" />
+        <label for="productName">Name:</label>
+        <div id="productName">{{ product.name }}</div>
+        <label for="productPrice">Price:</label>
+        <div id="productPrice">{{ product?.cardmarket?.prices?.lowPrice + '$' }}</div>
+      </div>
+
+    </div>
+    } @empty {
+    No card data
+    }
+  </div>
+
 </div>
