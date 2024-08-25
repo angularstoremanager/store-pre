@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 export interface Card {
   id: string;
   name: string;
@@ -15,23 +16,11 @@ export class PokemonService {
       return this.http.get<any>('https://api.pokemontcg.io/v2/cards')
     }
 
-    // getProductsMini() {
-    //     return Promise.resolve(this.getProductsData().slice(0, 5));
-    // }
+    getCards(): Observable<Card[]> {
+      return this.http.get<any>('https://api.pokemontcg.io/v2/cards')
+    }
 
-    // getProductsSmall() {
-    //     return Promise.resolve(this.getProductsData().slice(0, 10));
-    // }
-
-    // getProducts() {
-    //     return Promise.resolve(this.getProductsData());
-    // }
-
-    // getProductsWithOrdersSmall() {
-    //     return Promise.resolve(this.getProductsWithOrdersData().slice(0, 10));
-    // }
-
-    // getProductsWithOrders() {
-    //     return Promise.resolve(this.getProductsWithOrdersData());
-    // }
+    getSets(): Observable<Card[]> {
+      return this.http.get<any>('https://api.pokemontcg.io/v2/sets')
+    }
 };

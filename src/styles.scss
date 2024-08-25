@@ -5,49 +5,6 @@
   align-items: center;
 }
 
-.full-screen {
-  height: 100vh;
-  width: 100vw;
-  background: #f8f9fa;
-}
-
-.card-wrapper {
-  width: 80%;
-  height: 80%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  padding: 0.625rem;
-}
-
-.grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 1.25rem;
-  font-size: 1.875rem;
-  text-align: center;
-}
-
-.info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-img{
-  max-height:100%;
-    max-width:100%;
-}
-/* Responsive layout - makes the menu and the grid items stack on top of each other */
-@media (max-width: 600px) {
-  .grid-container {
-    grid-template-columns: auto;
-  }
-}
 
 .mb-1 {
   margin-bottom: 0.125rem;
